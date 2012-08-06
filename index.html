@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plivode</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700">
+    <link rel="stylesheet" type="text/css" href="css/coderay.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <h1>Plivode</h1>
+
+    <a id="fork-me" target="_blank" href="http://github.com/joeblynch/plivode"><img src="images/forkme.png" alt="fork me on github" /></a>
+
+    <p>A lightweight scalable application framework for creating <a target="_blank" href="http://www.plivo.com">Plivo</a>
+    apps with <a target="_blank" href="http://www.nodejs.org">NodeJS</a>.</p>
+
+    <h2>Getting Started</h2>
+    <pre>npm install plivode</pre>
+
+
+    <h3>Example: Hello, world!</h3>
+
+    Listen for incoming phone calls, then answer by speaking "Hello, world!"
+
+    <table class="CodeRay"><tr>
+
+      <td class="code"><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+
+<span class="keyword">new</span> plivode.App({
+    <span class="key">appID</span>: <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo app ID]</span><span class="delimiter">'</span></span>,
+    <span class="key">authID</span>: <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo auth ID]</span><span class="delimiter">'</span></span>,
+    <span class="key">authToken</span>: <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo auth token]</span><span class="delimiter">'</span></span>,
+    <span class="key">rootUrl</span>: <span class="string"><span class="delimiter">'</span><span class="content">[the root URL this app is accessible by Plivo]</span><span class="delimiter">'</span></span>
+})
+.on(<span class="string"><span class="delimiter">'</span><span class="content">answer</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(params, response) {
+    response
+        .speak(<span class="string"><span class="delimiter">'</span><span class="content">Hello, world!</span><span class="delimiter">'</span></span>)
+        .send();
+});</pre></td>
+    </tr></table>
+
+    <h3>Example: Parrot</h3>
+
+    Listen for sms messages, then phone the sender back and speak the message three times.
+
+    <div style="overflow:hidden;line-height:135px;">
+        <img class="qr-code" src="images/qr-parrot.png" alt="QR Code" />
+        <b>&laquo; Try Me:</b> Send a sms to <pre style="display: inline":>(949) 484-8425</pre>
+    </div>
+
+<table class="CodeRay"><tr>
+  <td class="code"><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+
+<span class="keyword">new</span> plivode.App({ <span class="key">...</span> })
+.on(<span class="string"><span class="delimiter">'</span><span class="content">message</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(params, response) {
+    <span class="comment">// When a sms is received, make an call to the number that sent</span>
+    <span class="comment">// the sms, passing the text of the sms to the &quot;parrot&quot; action.</span>
+    <span class="keyword">var</span> callFrom = <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo phone number]</span><span class="delimiter">'</span></span>,
+        callTo = params.From,
+        answerAction = [<span class="string"><span class="delimiter">'</span><span class="content">parrot</span><span class="delimiter">'</span></span>, params.Text];
+
+    <span class="local-variable">this</span>.Call.outbound(callFrom, callTo, answerAction);
+
+    <span class="comment">// Send a blank response back, so Plivo knows we processed</span>
+    <span class="comment">// the message and not to resend it.</span>
+    response.send();
+})
+.on(<span class="string"><span class="delimiter">'</span><span class="content">parrot/:message</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(params, response) {
+    <span class="comment">// The user answered the return call, so speak the text</span>
+    <span class="comment">// of the sms that they sent, and repeat it 3 times.</span>
+    response
+        .speak(params.message, { <span class="key">loop</span>: <span class="integer">3</span> })
+        .send();
+});
+</pre></td>
+</tr></table>
+
+
+    <h2>Going Further...</h2>
+
+    More documentation is on the way! For now, <a href="http://github.com/joeblynch/plivode">checkout the code on GitHub</a>.<br/><br/>
+</body>
+</html>
