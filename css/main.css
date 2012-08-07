@@ -41,7 +41,7 @@ h1, h2, h3 {
 h1 {
     font-size: 42pt;
     color: #e35a30;
-    text-shadow: 2px 2px 0 #8d003c;
+    text-shadow: 2px 2px 0 #972153;
     margin: 0;
 }
 
@@ -53,8 +53,8 @@ h2 {
 }
 
 h3 {
-    color: #8D003C;
-    text-shadow: 2px 2px 0 #FF6BD5;
+    color: #972153;
+    text-shadow: 2px 2px 0 #FFA1E4;
     font-size: 18pt;
 }
 
