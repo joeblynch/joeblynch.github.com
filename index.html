@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Plivode</title>
 
@@ -25,10 +25,8 @@
 
 
 
-    <div class="code-block">
-    <table class="CodeRay"><tr>
-
-      <td class="code"><!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+    <div class="CodeRay code">
+      <!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
 
 <span class="keyword">new</span> plivode.App({
     <span class="key">appID</span>: <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo app ID]</span><span class="delimiter">'</span></span>,
@@ -40,21 +38,20 @@
     response
         .speak(<span class="string"><span class="delimiter">'</span><span class="content">Hello, world!</span><span class="delimiter">'</span></span>)
         .send();
-});</pre></td>
-    </tr></table>
-    </div>
+});</pre></div>
 
     <h3>Example: Parrot</h3>
 
     Listen for sms messages, then phone the sender back and speak the message three times.
 
-    <div style="overflow:hidden;line-height:135px;">
-        <img class="qr-code" src="images/qr-parrot.png" alt="QR Code" />
-        <b>&laquo; Try Me:</b> Send a sms to <pre style="display: inline":>(949) 484-8425</pre>
-    </div>
+    <table>
+        <tr>
+            <td><img class="qr-code" src="images/qr-parrot.png" alt="QR Code" /></td>
+            <td><div class="qr-code-label"><b>&laquo; Try Me:</b> Send a sms to <pre style="display: inline">(949) 484-8425</pre></div></td>
+        </tr>
+    </table>
 
-<table class="CodeRay"><tr>
-  <td class="code"><!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+<div class="CodeRay code"><!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
 
 <span class="keyword">new</span> plivode.App({ <span class="key">...</span> })
 .on(<span class="string"><span class="delimiter">'</span><span class="content">message</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(params, response) {
@@ -77,8 +74,7 @@
         .speak(params.message, { <span class="key">loop</span>: <span class="integer">3</span> })
         .send();
 });
-</pre></td>
-</tr></table>
+</pre></div>
 
 
     <h2>Going Further...</h2>

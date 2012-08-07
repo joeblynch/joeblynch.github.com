@@ -87,9 +87,6 @@ pre {
     box-shadow: inset 0 0 2px 1px #C4B58E, 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.qr-code {
-    float: left;
-}
 
 #fork-me {
     position: absolute;
@@ -111,6 +108,10 @@ pre {
     border: 2px solid rgba(153, 255, 102, 0.5);
     cursor: pointer;
     border-radius: 5px;
+}
+
+.qr-code-label {
+    line-height: 42px;
 }
 
 .collapse:hover {
