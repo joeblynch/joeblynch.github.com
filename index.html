@@ -23,9 +23,12 @@
 
     Listen for incoming phone calls, then answer by speaking "Hello, world!"
 
+
+
+    <div class="code-block">
     <table class="CodeRay"><tr>
 
-      <td class="code"><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+      <td class="code"><!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
 
 <span class="keyword">new</span> plivode.App({
     <span class="key">appID</span>: <span class="string"><span class="delimiter">'</span><span class="content">[your Plivo app ID]</span><span class="delimiter">'</span></span>,
@@ -39,6 +42,7 @@
         .send();
 });</pre></td>
     </tr></table>
+    </div>
 
     <h3>Example: Parrot</h3>
 
@@ -50,7 +54,7 @@
     </div>
 
 <table class="CodeRay"><tr>
-  <td class="code"><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
+  <td class="code"><!--<button class="collapse"></button>--><pre><span class="keyword">var</span> plivode = require(<span class="string"><span class="delimiter">'</span><span class="content">plivode</span><span class="delimiter">'</span></span>);
 
 <span class="keyword">new</span> plivode.App({ <span class="key">...</span> })
 .on(<span class="string"><span class="delimiter">'</span><span class="content">message</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(params, response) {
@@ -80,5 +84,20 @@
     <h2>Going Further...</h2>
 
     More documentation is on the way! For now, <a href="http://github.com/joeblynch/plivode">checkout the code on GitHub</a>.<br/><br/>
+
+
+<script type="text/javascript">
+
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-33833361-1']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>
 </body>
 </html>

@@ -53,8 +53,8 @@ h2 {
 }
 
 h3 {
-    color: #FF5C83;
-    text-shadow: 1px 1px 0 #8F003E;
+    color: #8D003C;
+    text-shadow: 2px 2px 0 #FF6BD5;
     font-size: 18pt;
 }
 
@@ -99,4 +99,21 @@ pre {
 
 #install {
     display: inline-block;
+}
+
+.collapse {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    height: 30px;
+    width: 36px;
+    background: rgba(47, 109, 20, 0.5) url(../images/up.png) no-repeat 50% 50%;
+    border: 2px solid rgba(153, 255, 102, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.collapse:hover {
+    background-color: rgba(47, 109, 20, 0.9);
+    border: 2px solid rgba(153, 255, 102, 0.9);
 }
